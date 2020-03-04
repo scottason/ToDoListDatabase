@@ -4,9 +4,9 @@
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://cis175.cyjmhwddmxin.us-east-2.rds.amazonaws.com/zoo"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://cis175.ckt4e0simkcl.us-east-2.rds.amazonaws.com/TODOLIST"/>
 			<property name="javax.persistence.jdbc.user" value="admin"/>
-			<property name="javax.persistence.jdbc.password" value="GokuKick123"/>
+			<property name="javax.persistence.jdbc.password" value="javaJ0e5"/>
 		</properties>
 	</persistence-unit>
 </persistence>
