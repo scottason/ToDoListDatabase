@@ -8,7 +8,6 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 import model.Task;
-import model.TaskList;
 
 public class TaskHelper {
 	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("To-Do-List-Database");

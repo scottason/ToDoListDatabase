@@ -1,17 +1,15 @@
 package model;
 
 import java.time.LocalDate;
-import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
 import javax.persistence.Table;
 import model.TaskList;
 
@@ -27,8 +25,7 @@ public class Task {
 	private LocalDate taskDueDate;
 	@Column(name = "TASK_COMPLETED")
 	private char taskCompleted;
-	@ManyToOne(cascade=CascadeType.PERSIST)
-	@MapsId
+	@ManyToOne(cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
 	@JoinColumn(name="TASK_LIST_ID")
 	private TaskList taskList;
 
