@@ -28,7 +28,7 @@ public class ViewTaskItemsServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		ListItemHelper dao = new ListItemHelper();
+		TaskHelper dao = new TaskHelper();
 		
 		request.setAttribute("allItems", dao.showAllItems());
 		
