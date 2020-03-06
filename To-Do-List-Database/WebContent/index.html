@@ -5,27 +5,13 @@
 <title>Login page</title>
 </head>
 <body>
-<form action =
-"addItemServlet"
-method=
-"post"
->
-Create Task List Name: <input type =
-"taskListName"
-name =
-"UserIDNumber"
+<form action="addItemServlet" method="post">
+Create Task List Name: <input type="text" name="taskListName" maxlength="60" />
 
->
-<input type =
-"submit"
-value=
-"Add Item"
->
+<input type="submit" value="Add Item" />
 </form>
 
 <br />
-<a href =
-"viewAllItemsServlet"
->View the complete list</a>
+<a href="viewAllItemsServlet">View the complete list</a>
 </body>
 </html>

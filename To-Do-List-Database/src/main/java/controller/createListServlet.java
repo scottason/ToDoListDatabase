@@ -34,8 +34,9 @@ public class createListServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String taskListName = request.getParameter("task_list_name");
 		if (request.getParameter("task_list_name") != null && !request.getParameter("task_list_name").contentEquals("")) {
+			String taskListName = request.getParameter("task_list_name");
+			TaskList taskList = new TaskList(taskListName);
 			
 			List<Task> tasksEntered = new ArrayList<Task>();
 			int taskCounter = 1;
@@ -59,16 +60,23 @@ public class createListServlet extends HttpServlet {
 						ld = LocalDate.now();
 					}
 					
+					
 					Task task = new Task(taskDesc, ld);
+					task.setTaskList(taskList);
 					tasksEntered.add(task);
 				}
+				
 				taskCounter++;
 			}
 			
-			TaskList taskList = new TaskList(taskListName, tasksEntered);
 			
-			TaskListHelper tlh = new TaskListHelper();
-			tlh.insertTaskList(taskList);
+			if (tasksEntered != null && !tasksEntered.isEmpty()) {
+				taskList.setListOfTasks(tasksEntered);
+				TaskListHelper tlh = new TaskListHelper();
+				tlh.insertTaskList(taskList);
+			}
+			 
+			
 		}
 		
 		getServletContext().getRequestDispatcher("/create-list.jsp").forward(request, response);
