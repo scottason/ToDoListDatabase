@@ -28,13 +28,13 @@ public class ViewTaskItemsServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		TaskHelper dao = new TaskHelper();
+		TaskListHelper dao = new TaskListHelper();
 		
-		request.setAttribute("allItems", dao.showAllItems());
+		request.setAttribute("allItems", dao.showAllTaskLists());
 		
-		String path = "/shopping-list.jsp";
+		String path = "/view-task.jsp";
 		
-		if(dao.showAllItems().isEmpty()){
+		if(dao.showAllTaskLists().isEmpty()){
 			//if there's nothing in the list, redirect the user to the index to add an item
 			path = "/index.html";
 		

@@ -15,8 +15,8 @@
 <c:forEach items="${requestScope.allItems}" var="currentitem">
 <tr>
 <td><input type="radio" name="id" value="${currentitem.id}"></td>
-<td>${currentitem.species}</td>
-<td>${currentitem.amount}</td>
+<td>${currentitem.taskListName}</td>
+<td>${currentitem.listOfTasks}</td>
 </tr>
 </c:forEach>
 </table>

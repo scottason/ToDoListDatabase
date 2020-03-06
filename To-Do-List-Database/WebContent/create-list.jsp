@@ -67,6 +67,6 @@
 	
 	<input class="btn" type="submit" value="Create List" />
 </form>
-<a class="btn" href="viewAllListsServlet">View all of your lists</a>
+<a class="btn" href="viewTaskItemsServlet">View all of your lists</a>
 </body>
 </html>
