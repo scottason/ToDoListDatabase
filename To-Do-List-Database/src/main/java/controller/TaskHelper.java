@@ -25,6 +25,13 @@ public class TaskHelper {
 		List<Task> allItems = em.createQuery("SELECT t FROM Task t").getResultList();
 		return allItems;
 	}
+	
+	//This should take in the id from the selected item to view.
+	public List<Task> showCertainItems(){
+		EntityManager em = emfactory.createEntityManager();
+		List<Task> certainItems = em.createQuery("SELECT t FROM Task t where t.TASK_lIST_ID = TASK_LIST.ID").getResultList();
+		return certainItems;
+	}
 
 	public void deleteItem(Task toDelete) {
 		// TODO Auto-generated method stub
