@@ -20,6 +20,9 @@
 				
 			</tr>
 		</c:forEach>
+		<input type = "submit" value ="edit" name ="editThisToItem">
+		<input type = "submit" value ="delete" name ="deleteThisToItem">
+		
 	</form>
 </body>
 </html>
