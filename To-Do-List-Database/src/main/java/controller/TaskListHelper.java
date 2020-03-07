@@ -38,4 +38,25 @@ public class TaskListHelper {
 		em.close();
 		return found;
 	}
+	
+	public void deleteItem(TaskList toDelete) {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		TypedQuery<TaskList> typedQuery = em.createQuery(
+				"select	li	from TaskList li where li.taskListName = :selectedSpecias",
+				TaskList.class);
+		// Substitute parameter with actual data from the toDelete item
+		typedQuery.setParameter("selectedSpecias", toDelete.getTaskListName());
+		//typedQuery.setParameter("selectedPopulation", toDelete.getAmount());
+		
+		// we only want one result
+		typedQuery.setMaxResults(1);
+		//get the result and save it into a new list item
+		TaskList result = typedQuery.getSingleResult();
+		// remove it
+		em.remove(result);
+		em.getTransaction().commit();
+		em.close();
+  
+	}
 }
