@@ -10,17 +10,19 @@
 
 </head>
 <body>
-<form method = "post" action = "viewTaskServerlet">
+<form method = "post" action = "navigationServlet">
 <table>
 <c:forEach items="${requestScope.allItems}" var="currentitem">
 <tr>
 <td><input type="radio" name="id" value="${currentitem.id}"></td>
 <td>${currentitem.taskListName}</td>
-<td>${currentitem.listOfTasks}</td>
+
 </tr>
 </c:forEach>
 </table>
-
+<input type = "submit" value ="edit" name ="editThisToItem">
+		<input type = "submit" value ="delete" name ="deleteThisToItem">
+		<input type = "submit" value ="add" name ="deleteThisToItem">
 
 <input type = "submit" value ="view" name ="viewThisToItem">
 </form>

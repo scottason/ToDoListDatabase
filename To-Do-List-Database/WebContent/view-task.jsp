@@ -9,7 +9,7 @@
 </head>
 <body>
 	<form action="editItemServlet" method="post">
-		<c:forEach items="${requestScope.allItems}" var="currentitem">
+		<c:forEach items="${requestScope.certainItems}" var="currentitem">
 			<tr><TD><input type="hidden" name="id"
 					value="${currentitem.TASK_LIST_ID}"> <input type="submit"
 					value="Save Edited Item"></TD>
@@ -22,7 +22,7 @@
 		</c:forEach>
 		<input type = "submit" value ="edit" name ="editThisToItem">
 		<input type = "submit" value ="delete" name ="deleteThisToItem">
-		
+		<input type = "submit" value ="add" name ="deleteThisToItem">
 	</form>
 </body>
 </html>

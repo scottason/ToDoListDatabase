@@ -65,7 +65,17 @@ public class NavigationServlet extends HttpServlet {
 			catch(NumberFormatException e) {
 				System.out.println("Forgot to select an item");
 			}
-		} else if (act.equals("add")) {
+		
+		}
+		else if(act.equals("view")) {
+			try {
+				String tempId =request.getParameter("id");
+				request.setAttribute("currentItems",tempId);
+				path="/view-task.jsp";
+			}catch(NumberFormatException e) {
+				System.out.println("forgot to select an item");
+			}
+		}else if (act.equals("add")) {
 		path = "/index.html";
 		}
 		getServletContext().getRequestDispatcher(path).forward(request,response);
