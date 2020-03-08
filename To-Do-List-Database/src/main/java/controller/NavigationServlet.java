@@ -42,7 +42,7 @@ public class NavigationServlet extends HttpServlet {
 		TaskListHelper dao = new TaskListHelper();
 		// after all changes, we should redirect to the viewAllItems servlet
 		// The only time we don't is if they select to add a new item or edit
-		String path = "/viewAllItemsServlet";
+		String path = "/viewTaskServlet";
 	
 
 		if (act.equals("delete")) {
@@ -70,8 +70,8 @@ public class NavigationServlet extends HttpServlet {
 		else if(act.equals("view")) {
 			try {
 				String tempId =request.getParameter("id");
-				request.setAttribute("currentItems",tempId);
-				path="/view-task.jsp";
+				request.setAttribute("certainItems",tempId);
+				path="/viewTaskServerlet";
 			}catch(NumberFormatException e) {
 				System.out.println("forgot to select an item");
 			}

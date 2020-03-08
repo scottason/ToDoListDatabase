@@ -10,7 +10,7 @@
 
 </head>
 <body>
-<form method = "post" action = "navigationServlet">
+<form method = "post" action = "viewTaskServerlet">
 <table>
 <c:forEach items="${requestScope.allItems}" var="currentitem">
 <tr>

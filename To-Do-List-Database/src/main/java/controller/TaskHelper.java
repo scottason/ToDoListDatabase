@@ -27,7 +27,7 @@ public class TaskHelper {
 	}
 	
 	//This should take in the id from the selected item to view.
-	public List<Task> showCertainItems(){
+	public List<Task> showCertainItems(int tempID){
 		EntityManager em = emfactory.createEntityManager();
 		List<Task> certainItems = em.createQuery("SELECT t FROM Task t where t.id = :selectedID").getResultList();
 		return certainItems;

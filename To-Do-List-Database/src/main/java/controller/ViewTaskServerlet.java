@@ -30,6 +30,14 @@ public class ViewTaskServerlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		TaskHelper dao = new TaskHelper();
+		String tempID = (request.getParameter("id"));
+		request.setAttribute(tempID, dao.searchForItemById(Integer.parseInt(tempID)));
+
+		// the path to the webpage.
+		String path = "/view-task.jsp";
+		getServletContext().getRequestDispatcher(path).forward(request, response);
+
 	}
 
 	/**
@@ -39,15 +47,8 @@ public class ViewTaskServerlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		TaskHelper dao = new TaskHelper();
 
-		request.setAttribute("allItems", dao.showCertainItems());
-//the path to the webpage.
-		String path = "/view-task.jsp";
+		doGet(request, response);
 
-		if (dao.showCertainItems().isEmpty()) {
-			// if there's nothing in the list, redirect the user to the index to add an item
-			path = "/index.html";
-		}
 	}
 }
