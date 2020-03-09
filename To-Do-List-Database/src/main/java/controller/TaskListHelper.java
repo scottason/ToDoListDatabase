@@ -42,8 +42,8 @@ public class TaskListHelper {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<TaskList> typedQuery = em.createQuery("select tl from TaskList tl where tl.id = :selectedID", TaskList.class);
-		typedQuery.setParameter("selectedID", taskListID);
+		TypedQuery<TaskList> typedQuery = em.createQuery("select tl from TaskList tl where tl.id = :selectedid", TaskList.class);
+		typedQuery.setParameter("selectedid", taskListID);
 		typedQuery.setMaxResults(1);
 
 		TaskList found = typedQuery.getSingleResult();

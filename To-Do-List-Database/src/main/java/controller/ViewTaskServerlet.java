@@ -39,6 +39,7 @@ public class ViewTaskServerlet extends HttpServlet {
 		TaskListHelper dao = new TaskListHelper();
 		TaskList lOT = dao.searchForTaskListByID(tempID);
 		List<Task> taskListList = lOT.getListOfTasks();
+		request.setAttribute("currentItems", taskListList);
 
 		// the path to the webpage.
 		String path = "/view-task.jsp";
