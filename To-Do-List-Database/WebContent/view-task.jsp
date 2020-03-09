@@ -13,10 +13,10 @@
 			<tr><TD><input type="hidden" name="id"
 					value="${currentitem.TASK_LIST_ID}"> <input type="submit"
 					value="Save Edited Item"></TD>
-				<td>Task Description: ${currentitem.TASK_DESCRIPTION}">
+				<td>${currentitem.TASK_DESCRIPTION}">
 				</td>
-				<td>Due Date: ${currentitem.TASK_DUE_DATE}</td>
-				<td>Completed: ${currentitem.TASK_COMPLETED }></td>
+				<td> ${currentitem.TASK_DUE_DATE}</td>
+				<td> ${currentitem.TASK_COMPLETED }></td>
 				
 			</tr>
 		</c:forEach>

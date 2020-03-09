@@ -37,6 +37,18 @@ public class TaskListHelper {
 		TaskList found = typedQuery.getSingleResult();
 		em.close();
 		return found;
+	}	
+	public TaskList searchForTaskListByID(int taskListID) {
+		// TODO Auto-generated method stub
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		TypedQuery<TaskList> typedQuery = em.createQuery("select tl from TaskList tl where tl.id = :selectedID", TaskList.class);
+		typedQuery.setParameter("selectedID", taskListID);
+		typedQuery.setMaxResults(1);
+
+		TaskList found = typedQuery.getSingleResult();
+		em.close();
+		return found;
 	}
 	
 	public void deleteItem(TaskList toDelete) {
