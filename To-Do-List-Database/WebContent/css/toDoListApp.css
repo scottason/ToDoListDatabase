@@ -2,27 +2,44 @@ body {
 	font-family: Arial, serif;
 }
 
+form {
+	margin-bottom: 25px;
+}
+
 fieldset {
 	box-sizing: border-box;
-    max-width: 300px;
-    padding: 15px 15px 0 15px;
-    margin-bottom: 25px;
+	margin-bottom: 25px;
+	padding: 15px;
+    max-width: 600px;
+    width: 100%;
 }
 
-label {
-    float: left;
-    clear: both;
-    width: 85px;
-    font-weight: 700;
+.fieldGridWrapper {
+	display: grid;
+	grid-gap: 15px;
 }
 
-input {
-    display: inline-block;
-    margin-bottom: 15px;
+.fieldGridWrapper label {
+	font-weight: 700;
+	white-space: nowrap;
 }
 
-input#yearFld {
-    width: 50px;
+.taskRow {
+	display: grid;
+	grid-template-columns: repeat(7, auto);
+	grid-gap: 10px;
+}
+
+.taskCompleted:checked ~ label, .taskCompleted:checked ~ input {
+	text-decoration: line-through;
+}
+
+label[for=listNameFld] {
+	margin-right: 10px;
+}
+
+.taskDueMMFld, .taskDueDDFld, .taskDueYYYYFld {
+	width: 50px;
 }
 
 .btn {

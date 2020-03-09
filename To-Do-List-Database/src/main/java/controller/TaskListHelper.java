@@ -7,6 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+import model.Task;
 import model.TaskList;
 
 public class TaskListHelper {
@@ -26,6 +27,15 @@ public class TaskListHelper {
 		return allTaskLists;
 	}
 	
+	public TaskList searchForItemById(int idToEdit) {
+		// TODO Auto-generated method stub
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		TaskList found = em.find(TaskList.class, idToEdit);
+		em.close();
+		return found;
+	}
+	
 	public TaskList searchForTaskListByName(String taskListName) {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
@@ -37,6 +47,15 @@ public class TaskListHelper {
 		TaskList found = typedQuery.getSingleResult();
 		em.close();
 		return found;
+	}
+	
+	public void updateItem(TaskList toEdit) {
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		
+		em.merge(toEdit);
+		em.getTransaction().commit();
+		em.close();
 	}
 	
 	public void deleteItem(TaskList toDelete) {

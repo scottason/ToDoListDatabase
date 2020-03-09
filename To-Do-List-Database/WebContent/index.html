@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Login page</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<link rel="stylesheet" href="css/toDoListApp.css" />
+<title>To Do List App</title>
+<style>
+	.fieldGridWrapper {
+		grid-template-columns: repeat(2, auto);
+	}
+</style>
 </head>
 <body>
-<form action="createListServlet" method="post">
-Create Task List Name: <input type="text" name="taskListName" maxlength="60" />
-
-<input type="submit" value="Add Item" />
-</form>
-
-<br />
-<a href="viewTaskItemsServlet">View the complete list</a>
+	<h1>Welcome to the To Do List App!</h1>
+	<fieldset>
+		<legend>Choose one of the options</legend>
+		<div class="fieldGridWrapper">
+			<a class="btn" href="create-list.jsp">Create a list</a>
+			<a class="btn" href="viewTaskItemsServlet">View all of your lists</a>
+		</div>
+	</fieldset>
 </body>
 </html>

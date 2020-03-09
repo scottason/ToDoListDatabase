@@ -35,41 +35,38 @@ public class NavigationServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		String act = request.getParameter("doThisToItem");
-		TaskListHelper dao = new TaskListHelper();
+		TaskListHelper tlh = new TaskListHelper();
 		// after all changes, we should redirect to the viewAllItems servlet
 		// The only time we don't is if they select to add a new item or edit
-		String path = "/viewAllItemsServlet";
-	
+		String path = "/viewTaskItemsServlet";
 
 		if (act.equals("delete")) {
 			try {
-			String tempId = request.getParameter("taskListName");
-			TaskList itemToDelete = dao.searchForTaskListByName(tempId);
-			dao.deleteItem(itemToDelete);
-			}
-			catch(NumberFormatException e){
+				Integer tempId = Integer.parseInt(request.getParameter("id"));
+				TaskList itemToDelete = tlh.searchForItemById(tempId);
+				tlh.deleteItem(itemToDelete);
+			} catch (NumberFormatException e) {
 				System.out.println("Forgot to select an item");
-				
 			}
-		} else if (act.equals("edit")) {
+		} else if (act.equals("view/edit")) {
 			try {
-				String tempId = request.getParameter("taskListName");
-			TaskList itemToEdit = dao.searchForTaskListByName(tempId);
-			request.setAttribute("itemToEdit", itemToEdit);
-			path = "/edit-item.jsp";
-			}
-			catch(NumberFormatException e) {
+				Integer tempId = Integer.parseInt(request.getParameter("id"));
+				TaskList itemToEdit = tlh.searchForItemById(tempId);
+				request.setAttribute("itemToEdit", itemToEdit);
+				path = "/edit-task-list.jsp";
+			} catch (NumberFormatException e) {
 				System.out.println("Forgot to select an item");
 			}
 		} else if (act.equals("add")) {
-		path = "/index.html";
+			path = "/create-list.jsp";
 		}
-		getServletContext().getRequestDispatcher(path).forward(request,response);
-		
+		getServletContext().getRequestDispatcher(path).forward(request, response);
+
 	}
 
 }

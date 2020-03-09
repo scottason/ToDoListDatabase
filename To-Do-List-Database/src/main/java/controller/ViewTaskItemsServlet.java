@@ -32,7 +32,7 @@ public class ViewTaskItemsServlet extends HttpServlet {
 		
 		request.setAttribute("allItems", dao.showAllTaskLists());
 		
-		String path = "/view-task.jsp";
+		String path = "/view-task-list.jsp";
 		
 		if(dao.showAllTaskLists().isEmpty()){
 			//if there's nothing in the list, redirect the user to the index to add an item

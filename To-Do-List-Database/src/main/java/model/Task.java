@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDate;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,7 +26,7 @@ public class Task {
 	private LocalDate taskDueDate;
 	@Column(name = "TASK_COMPLETED")
 	private char taskCompleted;
-	@ManyToOne(cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="TASK_LIST_ID")
 	private TaskList taskList;
 
@@ -67,7 +68,7 @@ public class Task {
 	public void setTaskDueDate(LocalDate taskDueDate) {
 		this.taskDueDate = taskDueDate;
 	}
-
+	
 	public char getTaskCompleted() {
 		return taskCompleted;
 	}
